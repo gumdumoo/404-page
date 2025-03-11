@@ -21,6 +21,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	/* animation: advanced-float 3s ease-in-out infinite; */
 }
 
 .error-content {
@@ -51,7 +52,7 @@ body {
 	position: relative;
 	margin-right: 300px;
 	top: 3rem;
-	transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .home-btn:hover {
@@ -59,4 +60,51 @@ body {
 	box-shadow:5px rgb(19 51 83);
 }
 
+@keyframes advanced-float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
 
+@media (max-width:768px) {
+  .error-page {
+  	display: flex;
+  	overflow: hidden;
+  }
+
+}
+
+/* 系统默认或未指定时 */
+@media (prefers-color-scheme: light) {
+  :root {
+  /* 默认亮色主题 */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --primary-color: #2196f3;
+}
+  /* 亮色模式样式 */
+}
+
+@media (prefers-color-scheme: dark) {
+ :root {
+    /* 暗黑主题覆盖 */
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --primary-color: #90caf9;
+  } /* 暗黑模式样式 */
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
